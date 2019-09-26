@@ -1,6 +1,6 @@
 /*
 Projeto: PifPaf
-Desenvolvido por Anderson
+Desenvolvido por Anderson e Rafael
 */
 package pifpaf;
 

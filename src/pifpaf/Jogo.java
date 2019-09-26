@@ -1,6 +1,6 @@
 /*
 Projeto: PifPaf
-Desenvolvido por Anderson
+Desenvolvido por Anderson e Rafael
 */
 package pifpaf;
 
@@ -124,16 +124,20 @@ public class Jogo {
             //lixeira = jogadores[c].getCarta(subst);//coloca a carta na lixeira
         }else if(letra.equals("m")){
             System.out.println("---------------------------------------");
-            System.out.println("A carta puxada foi: "+BARALHO.maco());
+            System.out.println("A carta puxada foi: \n9 - "+BARALHO.maco());
             System.out.println("---------------------------------------");
-            System.out.println("Escolha a carta que deseja substituir:");
+            System.out.println("Escolha a carta que deseja substituir (0-9):");
             subst = entrada.nextInt();
-            cartaEscolhida = BARALHO.tirandoMaco(); /*carta escolhida é retirada do maço
+            if(subst!=9) cartaEscolhida = BARALHO.tirandoMaco(); /*carta escolhida é retirada do maço
             e depois o contador é incrementado*/
         }
-        lixeira = jogadores[c].getCarta(subst); //a carta descartada é colocada na lixeira
-        jogadores[c].atualizarCarta(subst,cartaEscolhida); /*manda o indice da carta que
-        deseja trocar e a carta que foi escolhida do maço ou da lixeira*/
+        if(subst!=9){
+            lixeira = jogadores[c].getCarta(subst); //a carta descartada é colocada na lixeira
+            jogadores[c].atualizarCarta(subst,cartaEscolhida); /*manda o indice da carta que
+            deseja trocar e a carta que foi escolhida do maço ou da lixeira*/
+        }else{
+            lixeira = BARALHO.tirandoMaco();
+        }
     }
     
     //método que mostra as cartas atualizadas de cada jogador
